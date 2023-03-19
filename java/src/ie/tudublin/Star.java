@@ -5,6 +5,13 @@ import processing.data.TableRow;
 
 public class Star
 {
+
+
+
+
+
+
+
     private boolean hab;
     private String displayName;
     private float distance;
@@ -21,21 +28,21 @@ public class Star
                 + ", xG=" + xG + ", yG=" + yG + ", zG=" + zG + "]";
     }
 
-    public Star(TableRow tr)
+    public Star(TableRow row)
     {
         this(
-            tr.getInt("Hab?") == 1, 
-            tr.getString("Display Name"), 
-            tr.getFloat("Distance"),
-            tr.getFloat("Xg"),
-            tr.getFloat("Yg"),
-            tr.getFloat("Zg"),
-            tr.getFloat("AbsMag")
+            row.getInt("Hab?") == 1, 
+            row.getString("Display Name"), 
+            row.getFloat("Distance"),
+            row.getFloat("Xg"),
+            row.getFloat("Yg"),
+            row.getFloat("Zg"),
+            row.getFloat("AbsMag")
         );
     }
     
     public Star(boolean hab, String displayName, float distance, float xG, float yG, float zG, float absMag) {
-        this.hab = hab;
+        this.hab = hab; //disambugate between two varibles assign parameter to field
         this.displayName = displayName;
         this.distance = distance;
         this.xG = xG;

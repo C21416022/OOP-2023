@@ -14,6 +14,36 @@ public class StarMap extends PApplet {
     
     public float border;
 
+    public void settings() {
+        size(800, 800);
+    }
+
+    Star first = null;
+    Star second = null;
+
+    public void setup() {
+        colorMode(RGB);
+        loadStars();
+        printStars();
+
+        border = width * 0.1f;
+    }
+
+
+
+
+    void loadStars()
+    {
+        Table table = loadTable("HabHYG15ly.csv", "header");
+        for(TableRow r:table.rows())
+        {
+            Star s = new Star(r);
+            stars.add(s);
+        }
+    }
+
+
+
     void drawGrid()
     {
         stroke(255, 0, 255);
@@ -38,22 +68,9 @@ public class StarMap extends PApplet {
         }
     }
 
-    void loadStars()
-    {
-        Table table = loadTable("HabHYG15ly.csv", "header");
-        for(TableRow r:table.rows())
-        {
-            Star s = new Star(r);
-            stars.add(s);
-        }
-    }
+  
 
-    public void settings() {
-        size(800, 800);
-    }
-
-    Star first = null;
-    Star second = null;
+    
 
 
 
@@ -86,13 +103,7 @@ public class StarMap extends PApplet {
         }
     }
 
-    public void setup() {
-        colorMode(RGB);
-        loadStars();
-        printStars();
-
-        border = width * 0.1f;
-    }
+    
 
     public void drawStars()
     {
