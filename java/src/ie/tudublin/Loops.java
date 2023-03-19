@@ -38,7 +38,7 @@ public class Loops extends PApplet {
 						float y = (d * 0.5f) + (d * j);
 						float c = ((i + j) / ((numCircles - 1) * 2.0f)) * 255.0f;
 						fill((c + off) % 256, 255, 255);
-						circle(x, y, d);
+						circle(x, y, d);//measuments
 					}
 				}
 				off += (mouseY / 50.0f);
